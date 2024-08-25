@@ -113,8 +113,8 @@ if __name__ == '__main__':
     trjs = []
     trjs_labels = []
     df = read_all_users('./data/geolife_raw')
-    trjs = np.array(trjs)
-    labels = np.array(trjs_labels)
+    trjs = np.array(trjs, dtype="oblect")
+    labels = np.array(trjs_labels, dtype="oblect")
 
     trjs, labels = shuffle(trjs, labels, random_state=10086)
 

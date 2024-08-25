@@ -56,7 +56,7 @@ def do_segment_trjs(trjs, labels, seg_size):
             trj_sub_seg_labels = [label for _ in range(len(trj_sub_segs))]
             total_trj_segs.extend(trj_sub_segs)
             total_trj_seg_labels.extend(trj_sub_seg_labels)
-    return np.array(total_trj_segs), np.array(total_trj_seg_labels)
+    return np.array(total_trj_segs, dtype="oblect"), np.array(total_trj_seg_labels, dtype="oblect")
 
 
 def segment_trjs(trjs, labels, seg_size):
@@ -113,7 +113,7 @@ def do_filter_error_gps_data(trj_segs, trj_seg_labels):
         else:
             filtered_trj_segs.append(filtered_trj_seg)
             filter_trj_seg_labels.append(trj_seg_label)
-    return np.array(filtered_trj_segs), np.array(filter_trj_seg_labels)
+    return np.array(filtered_trj_segs, dtype="oblect"), np.array(filter_trj_seg_labels, dtype="oblect")
 
 
 def filter_error_gps_data(trj_segs, trj_seg_labels):
@@ -227,7 +227,7 @@ def do_calc_trj_seg_clean_multi_features(trj_segs, trj_seg_labels, fill_seg_func
 
         valid_trj_segs.append(i)
     logger.info('* end a thread for calc_trjs_segs_clean_features')
-    return np.array(multi_feature_segs), np.array(multi_feature_seg_labels), valid_trj_segs, n_removed_points
+    return np.array(multi_feature_segs, dtype="oblect"), np.array(multi_feature_seg_labels, dtype="oblect"), valid_trj_segs, n_removed_points
 
 
 def calc_trj_seg_clean_features(trj_segs, trj_seg_labels, fill_seg_function, seg_size):
@@ -330,7 +330,7 @@ def calc_trjs_segs_noise_features(trjs_segs, trjs_segs_labels, fill_series_funct
         )
         trjs_segs_features.append(trj_seg_features)
         trjs_segs_features_labels.append(trj_seg_label)
-    return np.array(trjs_segs_features), np.array(trjs_segs_features_labels)
+    return np.array(trjs_segs_features, dtype="oblect"), np.array(trjs_segs_features_labels, dtype="oblect")
 
 
 def random_drop_points(trjs, percentage=0.1):
@@ -344,7 +344,7 @@ def random_drop_points(trjs, percentage=0.1):
         #     logger.info('short seg')
         #     continue
         new_trjs.append(new_trj)
-    return np.array(new_trjs)
+    return np.array(new_trjs, dtype="oblect")
 
 
 if __name__ == '__main__':

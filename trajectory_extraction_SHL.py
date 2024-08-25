@@ -67,8 +67,8 @@ if __name__ == '__main__':
     trjs_labels = []
     read_all_folders('./data/SHL_raw')
     # read_all_folders('/mnt/e/DATASET/SHLDataset_preview_v1/User3')
-    trjs = np.array(trjs)
-    labels = np.array(trjs_labels)
+    trjs = np.array(trjs, dtype="oblect")
+    labels = np.array(trjs_labels, dtype="oblect")
     trjs, labels = shuffle(trjs, labels, random_state=0)
     # trjs = trjs[:200]
     # labels = labels[:200]
